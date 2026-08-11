@@ -12,7 +12,8 @@ export function ContactForm() {
     setStatus("loading");
 
     try {
-      const response = await fetch("http://localhost:5678/webhook-test/saas_landing", {
+      // Updated with Production Webhook URL
+      const response = await fetch("http://localhost:5678/webhook/saas_landing", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, date: new Date().toISOString() }),
