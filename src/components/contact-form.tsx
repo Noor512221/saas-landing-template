@@ -12,8 +12,7 @@ export function ContactForm() {
     setStatus("loading");
 
     try {
-      // Replace this URL with your actual n8n Webhook URL later
-      const response = await fetch("YOUR_N8N_WEBHOOK_URL_HERE", {
+      const response = await fetch("http://localhost:5678/webhook-test/saas_landing", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, date: new Date().toISOString() }),
