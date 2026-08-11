@@ -1,9 +1,9 @@
-import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
-import { FeatureGrid } from "@/components/feature-grid";
-import { Pricing } from "@/components/pricing";
-import { ContactForm } from "@/components/contact-form";
-import { FaqFooter } from "@/components/faq-footer";
+import Navbar from "../components/navbar";
+import Hero from "../components/hero";
+import FeatureGrid from "../components/feature-grid";
+import Pricing from "../components/pricing";
+import { ContactForm } from "../components/contact-form";
+import { Footer } from "../components/faq-footer";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <FeatureGrid />
       <Pricing />
       <ContactForm />
-      <FaqFooter />
+      <Footer />
     </main>
   );
 }
