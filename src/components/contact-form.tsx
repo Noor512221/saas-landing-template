@@ -12,7 +12,7 @@ export function ContactForm() {
     setStatus("loading");
 
     try {
-      // Updated with Production Webhook URL
+      // Production Webhook URL Added
       const response = await fetch("http://localhost:5678/webhook/saas_landing", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -23,9 +23,11 @@ export function ContactForm() {
         setStatus("success");
         setEmail("");
       } else {
+        console.error("Webhook error status:", response.status);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Failed to reach n8n webhook:", err);
       setStatus("error");
     }
   };
@@ -64,6 +66,12 @@ export function ContactForm() {
               <Send className="w-4 h-4" />
             </button>
           </form>
+        )}
+        
+        {status === "error" && (
+          <p className="text-red-400 text-sm mt-3">
+            Something went wrong. Please try again or check n8n server status.
+          </p>
         )}
       </div>
     </section>
